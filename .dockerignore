@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.git/
+app/models/yolov8n-waste-12cls-best.pt
+tests/
+venv/
+*.egg-info
+dist/
+.venv/
