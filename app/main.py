@@ -13,3 +13,6 @@ async def read_root():
     """Root endpoint returning a welcome message."""
     return {"Hello": "World"}
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}

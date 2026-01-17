@@ -4,7 +4,8 @@ from app.utils.image_utils import load_image_from_bytes
 import numpy as np
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "yolov8n-waste-12cls-best.pt"
+MODEL_NAME = "yolov8n-waste-12cls-best.pt"
+MODEL_PATH = BASE_DIR / MODEL_NAME
 
 model = None
 
@@ -25,7 +26,8 @@ def predict_recyclability(image: np.array) -> str:
     global model
     if model is None:
         raise ValueError("Model is not loaded. Call load_model() before prediction.")
-    results = model.predict(image, conf=0.25, save=False)
+    
+    results = model.predict(image, device="cpu", conf=0.25, save=False)
     if len(results) == 0 or len(results[0].boxes) == 0:
         return "No objects detected"
     result = results[0]
