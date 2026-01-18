@@ -6,7 +6,7 @@ import requests
 from typing import Optional
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_NAME = "yolov8n-waste-12cls-best.pt"
+MODEL_NAME = "best.pt"
 # Allow overriding model location via env vars (for Railway persistent volume)
 # - MODEL_PATH: full path to the model file
 # - MODEL_DIR: directory containing the model file (joined with MODEL_NAME)
